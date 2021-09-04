@@ -1,6 +1,7 @@
 package actions;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 
@@ -16,6 +17,8 @@ import services.ReportService;
  *
  */
 public class TopAction extends ActionBase {
+
+    private ReportService service; //追記
 
     /**
      * indexメソッドを実行する
