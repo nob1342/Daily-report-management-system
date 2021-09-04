@@ -9,7 +9,6 @@ import actions.views.ReportConverter;
 import actions.views.ReportView;
 import constants.JpaConst;
 import models.Report;
-import models.validators.ReportValidator;
 
 /**
  * 日報テーブルの操作に関わる処理を行うクラス
@@ -85,7 +84,7 @@ public class ReportService extends ServiceBase {
      * @return バリデーションで発生したエラーのリスト
      */
     public List<String> create(ReportView rv) {
-        List<String> errors = ReportValidator.validate(rv);
+        List<String> errors = models.valdators.ReportValidator.validate(rv);
         if (errors.size() == 0) {
             LocalDateTime ldt = LocalDateTime.now();
             rv.setCreatedAt(ldt);
@@ -105,7 +104,7 @@ public class ReportService extends ServiceBase {
     public List<String> update(ReportView rv) {
 
         //バリデーションを行う
-        List<String> errors = ReportValidator.validate(rv);
+        List<String> errors = models.valdators.ReportValidator.validate(rv);
 
         if (errors.size() == 0) {
 
